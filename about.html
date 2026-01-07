@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - JES Educational Consultants</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#8B5CF6',
+                        accent: '#F59E0B',
+                        success: '#10B981',
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(50px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes gradient-shift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes fade-in-up {
+            0% {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slide-right {
+            0% {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes zoom-in {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
+            }
+        }
+
+        @keyframes background-zoom {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        .gradient-animate {
+            background-size: 200% 200%;
+            animation: gradient-shift 8s ease infinite;
+        }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-bg-zoom {
+            animation: background-zoom 20s ease-in-out infinite alternate;
+        }
+
+        .fade-in-up {
+            animation: fade-in-up 1s ease-out forwards;
+        }
+
+        .slide-right {
+            animation: slide-right 1s ease-out forwards;
+        }
+
+        .zoom-in {
+            animation: zoom-in 1s ease-out forwards;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .icon-pulse:hover {
+            animation: pulse-glow 1.5s infinite;
+        }
+    </style>
+</head>
+
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 text-white py-2 px-4">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between md:justify-start lg:justify-between items-center">
+                <div class="text-2xl font-bold flex-shrink-0">
+                    <a href="index.html" class="hover:opacity-80 transition">
+                        <img src="img/logo.png" alt="JES Educational Consultants" class="h-10">
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center md:ml-4 lg:ml-0 md:space-x-4 lg:space-x-8">
+                    <ul class="flex md:space-x-4 lg:space-x-8">
+                        <li><a href="index.html" class="hover:text-yellow-300 transition font-semibold">HOME</a></li>
+                        <li><a href="about.html"
+                                class="text-green-500 hover:text-yellow-300 transition font-semibold">ABOUT</a></li>
+                        <li><a href="services.html" class="hover:text-yellow-300 transition font-semibold">SERVICES</a>
+                        </li>
+                        <li><a href="destinations.html"
+                                class="hover:text-yellow-300 transition font-semibold">DESTINATIONS</a></li>
+                        <li><a href="contact.html" class="hover:text-yellow-300 transition font-semibold">CONTACT</a>
+                        </li>
+                    </ul>
+                    <a href="contact.html"
+                        class="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-white hover:text-green-600 transition shadow-md whitespace-nowrap">
+                        Request Info
+                    </a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4">
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="block py-2 hover:text-yellow-300 transition">HOME</a></li>
+                    <li><a href="about.html" class="block py-2 hover:text-yellow-300 transition">ABOUT</a></li>
+                    <li><a href="services.html" class="block py-2 hover:text-yellow-300 transition">SERVICES</a></li>
+                    <li><a href="destinations.html" class="block py-2 hover:text-yellow-300 transition">DESTINATIONS</a>
+                    </li>
+                    <li><a href="contact.html" class="block py-2 hover:text-yellow-300 transition">CONTACT</a></li>
+                    <li class="mt-4">
+                        <a href="contact.html"
+                            class="block w-full text-center bg-yellow-400 text-gray-900 py-3 rounded-full font-bold hover:bg-yellow-300 shadow-md">
+                            Request Info
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative text-white min-h-[85vh] py-32 overflow-hidden flex items-center">
+        <!-- Background Image with Zoom Animation -->
+        <div class="absolute inset-0 hero-bg-zoom"
+            style="background-image: url('img/about.png'); background-size: cover; background-position: center;">
+        </div>
+
+        <!-- Dark Overlay -->
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+
+        <!-- Animated Floating Shapes with Glow -->
+        <div class="absolute top-10 right-10 w-24 h-24 bg-yellow-400 rounded-full opacity-40 animate-float"
+            style="animation: float 3s ease-in-out infinite, pulse-glow 2s ease-in-out infinite;"></div>
+        <div class="absolute bottom-10 left-10 w-32 h-32 bg-pink-400 rounded-full opacity-40 animate-float"
+            style="animation: float 3s ease-in-out infinite 1.5s, pulse-glow 2s ease-in-out infinite 0.5s;"></div>
+        <div class="absolute top-1/2 right-1/4 w-16 h-16 bg-blue-400 rounded-full opacity-30 animate-float"
+            style="animation: float 4s ease-in-out infinite 0.8s, pulse-glow 2.5s ease-in-out infinite 1s;"></div>
+
+        <!-- Content with Staggered Animations -->
+        <div class="container mx-auto px-4 text-left relative z-10">
+            <p class="font-light mb-2 fade-in-up"
+                style="animation-delay: 0.3s; font-family: 'Barlow Condensed', sans-serif; font-size: 24px;">
+                Your Trusted Partner in
+            </p>
+            <h1 class="font-bold slide-right text-white"
+                style="animation-delay: 0.6s; font-family: 'Barlow Condensed', sans-serif; font-size: 64px;">
+                International Education
+            </h1>
+            <div class="mt-8 zoom-in">
+                <a href="#content"
+                    class="inline-block bg-[#fdfbf7] text-green-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-green-600 hover:text-white transition-all duration-300 transform hover:scale-110 hover:shadow-2xl group">
+                    Discover Our Story
+                    <i class="fas fa-arrow-down ml-2 group-hover:translate-y-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section id="content" class="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div
+                    class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 mb-12 reveal hover:shadow-blue-200/50 transition-shadow duration-500">
+                    <h2 class="text-4xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 reveal"
+                        style="transition-delay: 0.1s;">
+                        Who We Are
+                    </h2>
+                    <p class="text-lg text-gray-700 mb-6 leading-relaxed reveal" style="transition-delay: 0.2s;">
+                        JES Educational Consultants Ltd was established to provide expert consultancy services to help
+                        parents, students, and organizations across Nigeria and beyond with educational planning. We
+                        specialize in helping students achieve their dreams of studying at prestigious institutions
+                        around the world.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-6 leading-relaxed reveal" style="transition-delay: 0.3s;">
+                        Our company is one of the leading educational consultants in the West African region with
+                        extensive expertise in navigating admissions into top-tier institutions in Australia, New
+                        Zealand, United States, United Kingdom, Canada, and the United Arab Emirates.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed reveal" style="transition-delay: 0.4s;">
+                        With over 10 years of experience and having successfully placed over 500 students in world-class
+                        universities, we pride ourselves on providing personalized, professional, and comprehensive
+                        support throughout your study abroad journey.
+                    </p>
+                </div>
+
+                <!-- Mission & Vision -->
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div
+                        class="bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-3xl shadow-xl p-8 card-hover group cursor-pointer gradient-animate">
+                        <div
+                            class="text-5xl mb-4 transition-all duration-500 group-hover:scale-125 group-hover:rotate-12">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-4 transition-all duration-300 group-hover:text-yellow-300">Our
+                            Mission</h3>
+                        <p class="text-lg transition-all duration-300 group-hover:text-gray-100">To empower students to
+                            achieve their academic and career aspirations by providing expert guidance, comprehensive
+                            support, and access to world-class educational opportunities abroad.</p>
+                    </div>
+                    <div
+                        class="bg-gradient-to-br from-pink-500 to-red-600 text-white rounded-3xl shadow-xl p-8 card-hover group cursor-pointer gradient-animate">
+                        <div
+                            class="text-5xl mb-4 transition-all duration-500 group-hover:scale-125 group-hover:rotate-12">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-4 transition-all duration-300 group-hover:text-yellow-300">Our
+                            Vision</h3>
+                        <p class="text-lg transition-all duration-300 group-hover:text-gray-100">To be the most trusted
+                            and preferred educational consultancy in West Africa, known for excellence, integrity, and
+                            transforming students' dreams into reality.</p>
+                    </div>
+                </div>
+
+                <!-- Why Choose Us -->
+                <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 reveal">
+                    <h2
+                        class="text-4xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
+                        Why Choose JES Educational Consultants?
+                    </h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="flex items-start reveal" style="transition-delay: 0.1s;">
+                            <div
+                                class="bg-gradient-to-br from-blue-400 to-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0 icon-pulse transition-transform hover:scale-110">
+                                <i class="fas fa-check text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2 text-gray-800">Expert Guidance</h4>
+                                <p class="text-gray-600">Our experienced counsellors provide personalized advice
+                                    tailored to your unique goals.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start reveal" style="transition-delay: 0.2s;">
+                            <div
+                                class="bg-gradient-to-br from-purple-400 to-purple-600 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0 icon-pulse transition-transform hover:scale-110">
+                                <i class="fas fa-check text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2 text-gray-800">Proven Track Record</h4>
+                                <p class="text-gray-600">Over 500 successful student placements in top universities
+                                    worldwide.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start reveal" style="transition-delay: 0.3s;">
+                            <div
+                                class="bg-gradient-to-br from-pink-400 to-pink-600 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0 icon-pulse transition-transform hover:scale-110">
+                                <i class="fas fa-check text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2 text-gray-800">End-to-End Support</h4>
+                                <p class="text-gray-600">From course selection to visa application and arrival, we're
+                                    with you every step.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start reveal" style="transition-delay: 0.4s;">
+                            <div
+                                class="bg-gradient-to-br from-green-400 to-green-600 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0 icon-pulse transition-transform hover:scale-110">
+                                <i class="fas fa-check text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2 text-gray-800">Strong Partnerships</h4>
+                                <p class="text-gray-600">We work with over 20 prestigious universities and institutions
+                                    globally.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start reveal" style="transition-delay: 0.5s;">
+                            <div
+                                class="bg-gradient-to-br from-yellow-400 to-orange-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0 icon-pulse transition-transform hover:scale-110">
+                                <i class="fas fa-check text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2 text-gray-800">Transparent Process</h4>
+                                <p class="text-gray-600">Clear communication and regular updates throughout your
+                                    application journey.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start reveal" style="transition-delay: 0.6s;">
+                            <div
+                                class="bg-gradient-to-br from-red-400 to-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0 icon-pulse transition-transform hover:scale-110">
+                                <i class="fas fa-check text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2 text-gray-800">Post-Arrival Support</h4>
+                                <p class="text-gray-600">We continue to support you even after you arrive at your
+                                    destination.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="relative py-32 text-white overflow-hidden bg-fixed bg-center bg-cover"
+        style="background-image: url('img/about1.png'); background-attachment: fixed;">
+        <!-- Dark overlay for text readability -->
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 reveal">Ready to Start Your Journey?</h2>
+            <p class="text-xl mb-8 reveal" style="transition-delay: 0.2s;">Let us help you achieve your study abroad
+                dreams</p>
+            <a href="contact.html"
+                class="bg-white text-green-600 px-10 py-4 rounded-full text-xl font-bold hover:bg-green-600 hover:text-white transition transform hover:scale-105 inline-block shadow-xl reveal"
+                style="transition-delay: 0.4s;">
+                CONTACT US TODAY
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- About -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 text-green-400">About Us</h3>
+                    <p class="text-gray-300">JES Educational Consultants Ltd was established to provide consultancy
+                        services to help parents, students, and organizations with educational planning for studying
+                        abroad.</p>
+                </div>
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 text-green-400">Contact Us</h3>
+                    <p class="mb-2 text-gray-300"><i class="fas fa-map-marker-alt mr-2"></i>20 A, Close EFAB Estate
+                        Abuja, FCT, Nigeria</p>
+                    <p class="mb-2 text-gray-300"><i class="fas fa-phone mr-2"></i>+234 813 764 2883</p>
+                    <p class="mb-2 text-gray-300"><i class="fas fa-envelope mr-2"></i>info@jeseducational.com</p>
+                </div>
+                <!-- Hours -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 text-green-400">Opening Hours</h3>
+                    <p class="text-gray-300">Monday – Friday</p>
+                    <p class="text-gray-300 mb-4">09:00 AM – 5:00 PM</p>
+
+                    <!-- Social Media -->
+                    <div class="flex gap-4">
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition transform hover:scale-110"
+                            aria-label="Facebook">
+                            <i class="fab fa-facebook text-3xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition transform hover:scale-110"
+                            aria-label="Instagram">
+                            <i class="fab fa-instagram text-3xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition transform hover:scale-110"
+                            aria-label="Twitter">
+                            <i class="fab fa-twitter text-3xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2025 JES Educational Consultants Ltd. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            const isOpened = !menu.classList.contains('hidden');
+
+            if (!isOpened) { // Opening
+                menu.classList.remove('hidden');
+                nav.classList.add('bg-yellow-50', 'shadow-md', 'text-gray-900');
+                nav.classList.remove('text-white');
+            } else { // Closing
+                menu.classList.add('hidden');
+                if (window.scrollY <= 50) {
+                    nav.classList.remove('bg-yellow-50', 'shadow-md', 'text-gray-900');
+                    nav.classList.add('text-white');
+                }
+            }
+        });
+
+        // Nav scroll effect
+        const nav = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-yellow-50', 'shadow-md', 'text-gray-900');
+                nav.classList.remove('text-white');
+            } else {
+                nav.classList.remove('bg-yellow-50', 'shadow-md', 'text-gray-900');
+                nav.classList.add('text-white');
+            }
+        });
+
+        // Intersection Observer for reveal animations
+        const revealObserverOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, revealObserverOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => {
+                revealObserver.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>
